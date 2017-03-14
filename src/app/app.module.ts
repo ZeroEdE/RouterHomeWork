@@ -10,6 +10,10 @@ import { DashboardComponent} from "./dashboard/dashboard.component";
 import { LoginComponent } from './login/login.component';
 import { CardsComponent} from "./cards/cards.component";
 import { FormComponent } from './form/form.component';
+import { Form2Component } from './form2/form2.component';
+import { Advcomp1Component } from './advcomp1/advcomp1.component';
+import { Advcomp1HeaderComponent } from './advcomp1-header/advcomp1-header.component';
+import { Advcomp1PartComponent } from './advcomp1-part/advcomp1-part.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { FormComponent } from './form/form.component';
     LoginComponent,
     CardsComponent,
     DashboardComponent,
-    FormComponent
+    FormComponent,
+    Form2Component,
+    Advcomp1Component,
+    Advcomp1HeaderComponent,
+    Advcomp1PartComponent
   ],
   imports: [
     BrowserModule,
