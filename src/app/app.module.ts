@@ -1,17 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import {DashboardComponent} from "./dashboard/dashboard.component";
+import { DashboardComponent} from "./dashboard/dashboard.component";
 import { LoginComponent } from './login/login.component';
-import {CardsComponent} from "./cards/cards.component";
-
-import {FlotComponent} from "./charts/flot/flot.component";
-import {ChartsRoutingModule} from "./charts/charts-routing.module";
+import { CardsComponent} from "./cards/cards.component";
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +19,13 @@ import {ChartsRoutingModule} from "./charts/charts-routing.module";
     LoginComponent,
     CardsComponent,
     DashboardComponent,
-    FlotComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule, // 它只支援 Template-Driven Form 註: 要寫在隸屬的 component 才能使用，匯在上層不能使用哦
+    ReactiveFormsModule, // 支援 Model-Driven Form 註: 要寫在隸屬的 component 才能使用，匯在上層不能使用哦
     HttpModule,
-    ChartsRoutingModule,
     AppRoutingModule,
   ],
   providers: [],

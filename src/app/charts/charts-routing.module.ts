@@ -1,23 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FlotComponent} from './flot/flot.component';
-import { LayoutComponent} from '../layout/layout.component';
-
-// 將 charts 的 routes 獨立出來寫在 Module 裡面
-// const routes: Routes = [
-//   {
-//     path: 'charts', component: LayoutComponent,
-//     children:[
-//       { path: '', redirectTo: 'flot', pathMatch: 'full' }, // 空值時，會轉向
-//       { path: 'flot', component: FlotComponent }
-//   ]},
-// ];
+import {LoginRouteGuard} from "./login-route-guard";
 
 const routes: Routes = [
-  { path: 'charts', component: LayoutComponent, children:[
-    { path: '', redirectTo: 'flot', pathMatch: 'full' }, // 空值時，會轉向
-    { path: 'flot', component: FlotComponent }
-  ]},
+  {path: '', redirectTo: 'flot', pathMatch: 'full'},
+  {path: 'flot', component: FlotComponent ,canActivate: [LoginRouteGuard]} // 在某頁加入 判斷登入機制
+
 ];
 
 // 指令 ng g m charts --routing 就會直接創建 module routes.module
@@ -26,6 +15,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: []
+  providers: [LoginRouteGuard] // 判斷機制 要匯到這裡來
 })
 export class ChartsRoutingModule { }

@@ -18,7 +18,7 @@
             <li><a href="profile.html"><em class="ion-home icon-fw"></em>Profile</a></li>
             <li><a href="messages.html"><em class="ion-gear-a icon-fw"></em>Messages</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a routerLinkActive="/login"><em class="ion-log-out icon-fw"></em>Logout</a></li>
+            <li><a [routerLink]="['/login']"><em class="ion-log-out icon-fw"></em>Logout</a></li>
           </ul>
         </li>
         <li><a id="header-settings" href="#" class="ripple"><em class="ion-gear-b"></em></a></li>
@@ -135,7 +135,7 @@
   <!-- Main section-->
   <main class="main-container">
 
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> <!-- 一個很神奇的地方，會去找上層的 outlet 來套子層的版 -->
 
     <footer><span>2017 - Centric app.</span></footer>
   </main>

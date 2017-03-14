@@ -4,23 +4,28 @@ import {LayoutComponent} from "./layout/layout.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {LoginComponent} from './login/login.component';
 import {CardsComponent} from  './cards/cards.component';
+import {fallbackRoute} from "./fallbackRoute";
+import {FormComponent} from './form/form.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent},
-
-  {
-    path: '', component: LayoutComponent,
+  { path: '', component: LayoutComponent, // 中間掛一層 layout 的作法
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/form', pathMatch: 'full' },
+      { path: 'form', component: FormComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'cards', component: CardsComponent},
-      { path: 'cards/:num', component: CardsComponent}, // 路徑帶值傳到本身上做法
-    ],
-  }
+      { path: 'cards', component: CardsComponent },
+      { path: 'cards/:num', component: CardsComponent },
 
-
+      // 延遲載入 不須在 app.module 做 import routeing.module
+      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' } // 延遲載入
+    ]
+  },
+  { path: 'login', component: LoginComponent },
+  fallbackRoute
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
