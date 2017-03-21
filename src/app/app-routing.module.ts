@@ -16,8 +16,8 @@ const routes: Routes = [
 
   { path: '', component: LayoutComponent, // 中間掛一層 layout 的作法
     children: [
-      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-      { path: '', redirectTo: '/form2', pathMatch: 'full' },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      // { path: '', redirectTo: '/form2', pathMatch: 'full' },
       { path: 'form', component: FormComponent },
       { path: 'form2', component: Form2Component },
       { path: 'dashboard', component: DashboardComponent },

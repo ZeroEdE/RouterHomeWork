@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {initDashboard} from "./init"; // 匯入 圖表 jquery code
 
 
@@ -7,7 +7,9 @@ import {initDashboard} from "./init"; // 匯入 圖表 jquery code
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  // encapsulation: ViewEncapsulation.Emulated
+  // encapsulation: ViewEncapsulation.Native // 更改 css 封裝
 })
 export class DashboardComponent implements OnInit {
 
@@ -21,5 +23,6 @@ export class DashboardComponent implements OnInit {
     $(initDashboard); // 呼叫自定檔
 
   }
+
 
 }

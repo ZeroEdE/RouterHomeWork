@@ -9,12 +9,14 @@ export class LoginRouteGuard implements CanActivate {
 
   // 判斷 登入 是否符合
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    if(route.queryParams['api'] == '123')  {
-      return Observable.of(true);
-    }else {
-      this.router.navigateByUrl('/login');
-      return Observable.of(false);
-    }
+    // if(route.queryParams['api'] == '123')  {
+    //   return Observable.of(true);
+    // }else {
+    //   this.router.navigateByUrl('/login');
+    //   return Observable.of(false);
+    // }
+
+    return Observable.of(true);
   }
 
 
